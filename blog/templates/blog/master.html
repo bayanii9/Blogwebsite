@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Simple Django Blog{% endblock %}</title>
+</head>
+<body>
+    <h1>Simple Django Blog</h1>
+
+    <nav>
+        <a href="{% url 'blog:home' %}">Home</a> |
+        <a href="{% url 'blog:blogs' %}">Blogs</a> |
+        <a href="{% url 'blog:categories' %}">Categories</a> |
+        <a href="{% url 'blog:comments' %}">Comments</a> |
+        <a href="{% url 'blog:users' %}">Users</a> |
+        <a href="/admin/">Admin</a>
+    </nav>
+
+    <hr>
+
+    {% block content %}{% endblock %}
+
+    <hr>
+    <p>Simple Django Blog</p>
+</body>
+</html>

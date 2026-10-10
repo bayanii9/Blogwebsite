@@ -1,0 +1,16 @@
+{% extends 'blog/master.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Latest Posts</h2>
+
+{% for post in posts %}
+<h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+<p>{{ post.content|truncatewords:30 }}</p>
+<p>Category: {{ post.category.name }}</p>
+<p>Author: {{ post.author.username }}</p>
+{% empty %}
+<p>No posts yet.</p>
+{% endfor %}
+{% endblock %}

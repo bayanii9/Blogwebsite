@@ -1,0 +1,24 @@
+{% extends 'blog/master.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'blog:blogs' %}">Back to all posts</a></p>
+
+<h2>{{ post.title }}</h2>
+<p>Category: {{ post.category.name }}</p>
+<p>Author: {{ post.author.username }}</p>
+<p>Published: {{ post.date_published }}</p>
+
+<div>{{ post.content|linebreaks }}</div>
+
+<h3>Comments</h3>
+
+{% for comment in comments %}
+<p>{{ comment.content }}</p>
+<p>By: {{ comment.user.username }}</p>
+<hr>
+{% empty %}
+<p>No comments yet.</p>
+{% endfor %}
+{% endblock %}

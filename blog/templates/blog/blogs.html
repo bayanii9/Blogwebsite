@@ -1,0 +1,15 @@
+{% extends 'blog/master.html' %}
+
+{% block title %}Blogs{% endblock %}
+
+{% block content %}
+<h2>All Blog Posts</h2>
+
+{% for post in posts %}
+<p>
+    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+</p>
+{% empty %}
+<p>No posts yet.</p>
+{% endfor %}
+{% endblock %}
